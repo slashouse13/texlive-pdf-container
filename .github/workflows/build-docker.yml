@@ -1,0 +1,46 @@
+name: Build Docker Image
+run-name: Building image
+on:
+  workflow_call:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+      - 'README'
+      - 'LICENSE'
+      - 'Makefile'
+      - '.gitignore'
+jobs:
+  build:
+    defaults:
+      run:
+        shell: bash
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Need to get an ACR where to push the image
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io/${{ github.actor }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >> ${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+      - name: Build and push Texlive image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: ghcr.io/${{ github.actor }}/texlive-full:1.0
+          push: true

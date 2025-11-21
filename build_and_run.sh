@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILE_PATH=$1
 TEXLIVE_SOURCE_URL=${TEXLIVE_SOURCE_URL:-"https://mirror.ctan.org"}

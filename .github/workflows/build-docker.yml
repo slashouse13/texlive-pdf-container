@@ -11,6 +11,11 @@ on:
       - 'LICENSE'
       - 'Makefile'
       - '.gitignore'
+
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build:
     defaults:

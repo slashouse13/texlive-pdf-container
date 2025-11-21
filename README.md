@@ -6,12 +6,19 @@ I created this mostly to not have texlive installed on my machine as it's a mess
 
 ## Run
 
+### Run from pre-build
+To avoid building yourselves, from the `.tex` file location run:
+```sh
+docker run --rm -v ./:/tex ghcr.io/slashouse13/texlive-full:1.0 $FILE_NAME
+```
+
+### Build and run
 ```sh
 ./build_and_run.sh <file name>
 ```
 The resulting pdf, log, out files will be put in the current folder
 
-__This build takes ages__ (R is the worst to build/install packages) so either use the already built image or just patiently wait.
+__This build takes ages__ (R is the worse to build/install packages) so either use the already built image or just patiently wait.
 
 ## Known issues
 When building, sometimes texlive uses malfunctioning repos

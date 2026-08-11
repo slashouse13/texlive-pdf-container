@@ -47,5 +47,5 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: ghcr.io/${{ github.repository_owner }}/texlive-full:1.0
+          tags: ghcr.io/${{ env.OWNER_LC }}/texlive-full:1.0
           push: true

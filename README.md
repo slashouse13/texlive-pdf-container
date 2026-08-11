@@ -9,7 +9,7 @@ I created this mostly to not have texlive installed on my machine as it's a mess
 ### Run from pre-build
 To avoid building yourselves, from the `.tex` file location run:
 ```sh
-docker run --rm -v ./:/tex ghcr.io/slashouse13/texlive-full:1.0 $FILE_NAME
+docker run --rm -v ./:/tex ghcr.io/scarleshsoftware/texlive-full:1.0 $FILE_NAME
 ```
 
 ### Build and run

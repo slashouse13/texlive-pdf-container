@@ -12,6 +12,7 @@ RUN apt-get update && \
         unzip \
         gnupg \
         fontconfig \
+        texlive-luatex \
         ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 

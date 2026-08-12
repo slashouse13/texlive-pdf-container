@@ -22,5 +22,5 @@ docker run --rm -v "$FILE_PATH":/tex/$FILE_NAME -v ./:/tex $IMAGE $FILE_NAME
 echo "Created PDF: ${FILE_NAME%.tex}.pdf"
 
 echo "Cleaning up auxiliary files..."
-rm -f "${FILE_NAME%.tex}.aux" "${FILE_NAME%.tex}.log" "${FILE_NAME%.tex}.out" "${FILE_NAME%.tex}.tex"
+rm -f "${FILE_NAME%.tex}.aux" "${FILE_NAME%.tex}.log" "${FILE_NAME%.tex}.out"
 echo "Done."
